@@ -1,0 +1,15 @@
+@import '@angular/material/theming';
+@include mat-core();
+
+
+html, body { height: 100%; }
+body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
+
+.blue {
+    color:#66b6c2 ;
+    
+}
+
+.v-middle {
+    vertical-align:  middle;
+}

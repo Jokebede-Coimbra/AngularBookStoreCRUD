@@ -1,0 +1,19 @@
+<mat-toolbar class="header mat-elevation-z4">
+  <span>
+    <a>
+      <img class="logo" src="assets/image/logoC.png" alt="logo" />
+    </a>
+  </span>
+  <div class="spacer"></div>
+    <a mat-button routerLink="/">
+      <i class="material-icons"> home </i>
+      Início
+    </a>
+    <a mat-button routerLink="/products">
+      <i class="material-icons"> storefront </i>
+      Produtos
+    </a>
+  <div>
+    <router-outlet></router-outlet> 
+  </div>
+</mat-toolbar>

@@ -1,0 +1,52 @@
+{
+  "products": [
+    {
+      "id": 1,
+      "name": "Clean Code",
+      "author": "Robert C. Martin",
+      "rating": 4,
+      "price": "255.99",
+      "file_name": "Clean+Code.jpg"
+    },
+    {
+      "id": 2,
+      "name": "Redes de Computadores",
+      "author": "Andrew Tanenbaum",
+      "rating": 5,
+      "price": 169.99,
+      "file_name": "Redes+Computadores.jpg"
+    },
+    {
+      "id": 3,
+      "name": "Redes - Guia Prático",
+      "author": "Carlos E. Morimoto",
+      "rating": "5",
+      "price": 59.99,
+      "file_name": "Redes.jpg"
+    },
+    {
+      "id": 4,
+      "name": "Introdução à Linguagem SQL",
+      "author": "Thomas Nield",
+      "rating": 5,
+      "price": 70.99,
+      "file_name": "Sql.jpg"
+    },
+    {
+      "id": 5,
+      "name": "Administração de Redes Linux",
+      "author": "Ricardo Lino Olonca",
+      "rating": 4,
+      "price": 57.99,
+      "file_name": "Redes+Linux.jpg"
+    },
+    {
+      "name": "Clean Code",
+      "author": "M.TT",
+      "rating": 4,
+      "price": 29.99,
+      "file_name": "teste.png",
+      "id": 6
+    }
+  ]
+}
