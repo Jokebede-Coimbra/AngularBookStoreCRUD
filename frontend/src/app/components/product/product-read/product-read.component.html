@@ -18,10 +18,10 @@
     <ng-container matColumnDef="rating">
       <th mat-header-cell *matHeaderCellDef>Avaliação</th>
       <td mat-cell *matCellDef="let product">
-        <mat-icon *ngFor="let star of getStars(product.rating)">star</mat-icon>
+        <mat-icon class="star" *ngFor="let _ of getStars(product.rating)">star</mat-icon>
       </td>
     </ng-container>
-
+  
     <ng-container matColumnDef="price">
       <th mat-header-cell *matHeaderCellDef>Preço</th>
       <td mat-cell *matCellDef="let product">

@@ -11,11 +11,15 @@ export class ProductReadComponent implements OnInit{
 
   products: Product[] = [];
   displayedColumns = ['id', 'name', 'author', 'rating', 'price', 'file_name', 'action'];
+
   
-  getStars(rating: number): number[] {
-    // Gera uma matriz de estrelas com base no valor da avaliação
-    return Array.from({ length: rating }, (_, index) => index);
+  getStars(rating: number): any[] {
+    const maxStars = 5;
+    const roundedRating = Math.min(Math.max(Math.round(rating), 1), maxStars);
+    return Array(roundedRating).fill(0);
   }
+  
+  
   constructor(private productService: ProductService) {}
 
   ngOnInit(): void {
@@ -25,6 +29,7 @@ export class ProductReadComponent implements OnInit{
     });
 
   }
+
 }
 
 

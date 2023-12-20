@@ -4,7 +4,7 @@
       "id": 1,
       "name": "Clean Code",
       "author": "Robert C. Martin",
-      "rating": 4,
+      "rating": "2",
       "price": "255.99",
       "file_name": "Clean+Code.jpg"
     },
@@ -36,17 +36,25 @@
       "id": 5,
       "name": "Administração de Redes Linux",
       "author": "Ricardo Lino Olonca",
-      "rating": 4,
+      "rating": "5",
       "price": 57.99,
       "file_name": "Redes+Linux.jpg"
     },
     {
       "name": "Clean Code",
       "author": "M.TT",
-      "rating": 4,
+      "rating": "5",
       "price": 29.99,
       "file_name": "teste.png",
       "id": 6
+    },
+    {
+      "name": "Teste",
+      "author": "Autor2",
+      "rating": "3",
+      "price": "25.96",
+      "file_name": "Clean+Architecture.jpg",
+      "id": 7
     }
   ]
 }

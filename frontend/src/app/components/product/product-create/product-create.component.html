@@ -1,35 +1,65 @@
 <div class="mat-create">
-<mat-card class="center-card">
-  <mat-card-title>Novo Produto</mat-card-title>
-  <form class="form-container">
-    <mat-form-field class="full-width">
-      <input matInput placeholder="Nome" [(ngModel)]="product.name" name="name">
-    </mat-form-field>
-    <mat-form-field class="full-width">
-      <input matInput placeholder="Autor" [(ngModel)]="product.author" name="author">
-    </mat-form-field>
-    <mat-form-field class="full-width">
-      <input matInput placeholder="Avaliação" [(ngModel)]="product.rating" name="rating">
-    </mat-form-field>
-    <mat-form-field class="full-width">
-      <input matInput placeholder="Preço (R$)" [(ngModel)]="product.price" name="price">
-    </mat-form-field>
-    <mat-form-field class="full-width">
-      <!-- Adicionando o campo de upload de arquivo -->
-      <input type="file" (change)="onFileSelected($event)" accept="image/*" style="display: none" #fileInput />
-      <button mat-button color="primary" (click)="fileInput.click()">Escolher arquivo</button>
-      <!-- Exibindo o nome do arquivo selecionado -->
-      <span>{{ product.file_name }}</span>
-    </mat-form-field>
+  <mat-card class="center-card">
+    <mat-card-title>Novo Produto</mat-card-title>
+    <form class="form-container">
+      <mat-form-field class="full-width">
+        <input
+          matInput
+          placeholder="Nome"
+          [(ngModel)]="product.name"
+          name="name"
+          required
+        />
+      </mat-form-field>
+      <mat-form-field class="full-width">
+        <input
+          matInput
+          placeholder="Autor"
+          [(ngModel)]="product.author"
+          name="author"
+          required
+        />
+      </mat-form-field>
+      <mat-form-field class="full-width">
+        <input
+          matInput
+          placeholder="Avaliação"
+          [(ngModel)]="product.rating"
+          name="rating"
+          required
+        />
+      </mat-form-field>
+      <mat-form-field class="full-width">
+        <input
+          matInput
+          placeholder="Preço (R$)"
+          [(ngModel)]="product.price"
+          name="price"
+          required
+        />
+      </mat-form-field>
 
-    <div class="button-container">
-      <button class="salvar" mat-raised-button (click)="createProduct()" color="primary">
-        Salvar
-      </button>
-      <button class="cancelar" mat-raised-button (click)="cancel()">
-        Cancelar
-      </button>
-    </div>
-  </form>
-</mat-card>
+      <div class="file">
+        <input
+          type="file"
+          name="file_name"
+          (change)="getFile($event)"
+        />
+      </div>
+
+      <div class="button-container">
+        <button
+          class="salvar"
+          mat-raised-button
+          (click)="createProduct()"
+          color="primary"
+        >
+          Salvar
+        </button>
+        <button class="cancelar" mat-raised-button (click)="cancel()">
+          Cancelar
+        </button>
+      </div>
+    </form>
+  </mat-card>
 </div>
