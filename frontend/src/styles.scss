@@ -1,15 +1,93 @@
 @import '@angular/material/theming';
 @include mat-core();
+/* You can add global styles to this file, and also import other style files */
 
+html,
+body {
+    height: 100%;
+}
 
-html, body { height: 100%; }
-body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
+body {
+    margin     : 0;
+    font-family: Roboto, "Helvetica Neue", sans-serif;
+}
 
 .blue {
-    color:#66b6c2 ;
-    
+    color: #f27220;
+
 }
 
 .v-middle {
-    vertical-align:  middle;
+    vertical-align: middle;
 }
+
+
+body,
+ul,
+li,
+p,
+a,
+label,
+input,
+div {
+    font-family: 'Roboto', sans-serif;
+    font-size  : 18px !important;
+    font-weight: 300 !important;
+}
+
+.h1 {
+    font-family: 'Roboto', sans-serif;
+    font-size  : 48px !important;
+    font-weight: 200 !important;
+    color      : #f27220;
+}
+
+.h2 {
+    font-family: 'Roboto', sans-serif;
+    font-size  : 30px !important;
+    font-weight: 300;
+}
+
+.h3 {
+    font-family: 'Roboto', sans-serif;
+    font-size  : 22px !important;
+}
+
+
+/* Hero Carousel */
+#template-mo-jassa-hero-carousel {
+    background: #efefef !important;
+    margin-top: 5rem;
+}
+
+
+/* Carousel Hero */
+#template-mo-jassa-hero-carousel .carousel-control-next i,
+#template-mo-jassa-hero-carousel .carousel-control-prev i {
+    color    : #f27220 !important;
+    font-size: 2.8em !important;
+}
+
+/* Carousel Brand */
+.tempaltemo-carousel .h1 {
+    font-size: .5em !important;
+    color    : #000 !important;
+}
+
+
+@media (min-width: 576px) {
+    .tempaltemo-carousel .h1 {
+        font-size: 1em !important;
+    }
+}
+
+
+@media (min-width: 992px) {
+
+    #template-mo-jassa-hero-carousel .carousel-item {
+        min-height: 30rem !important;
+    }
+}
+
+
+@media (min-width: 1200px) {}

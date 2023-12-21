@@ -10,8 +10,8 @@ import { Observable } from 'rxjs';
 
 export class ProductService {
 
-  baseApi = 'http://localhost:3600/products'
-  baseApi2 = 'http://18.231.125.57/products'
+  baseApi2 = 'http://localhost:3600/products'
+  baseApi = 'http://18.231.125.57/products'
   
 
   constructor(private snackBar: MatSnackBar, private http: HttpClient) { }
