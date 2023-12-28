@@ -2,6 +2,8 @@ import { Component, OnInit } from "@angular/core";
 import { Product } from "../model/product.model";
 import { ProductService } from "../product.service";
 import { ChangeDetectorRef } from "@angular/core";
+import { ConfirmationDialogComponent } from "../../confirmation-dialog/confirmation-dialog.component";
+import { MatDialog } from "@angular/material/dialog";
 
 @Component({
   selector: "app-product-read",
@@ -28,7 +30,8 @@ export class ProductReadComponent implements OnInit {
 
   constructor(
     private productService: ProductService,
-    private cdr: ChangeDetectorRef
+    private cdr: ChangeDetectorRef,  
+    public dialog: MatDialog
   ) {}
 
   ngOnInit(): void {
@@ -38,9 +41,17 @@ export class ProductReadComponent implements OnInit {
   }
 
   deleteProduct(productId: string): void {
-    this.productService.delete(productId).subscribe(() => {
-      this.refreshTable();
-      this.productService.showMessage("Produto excluído com sucesso!");
+    const dialogRef = this.dialog.open(ConfirmationDialogComponent, {
+      data: "Tem certeza que deseja remover esse livro?",
+    });
+
+    dialogRef.afterClosed().subscribe((result: boolean) => {
+      if (result) {
+        this.productService.delete(productId).subscribe(() => {
+          this.refreshTable();
+          this.productService.showMessage("Produto excluído com sucesso!");
+        });
+      }
     });
   }
 

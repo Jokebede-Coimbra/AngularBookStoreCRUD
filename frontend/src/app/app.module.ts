@@ -32,6 +32,8 @@ import { ProductUpdateComponent } from './components/product/product-update/prod
 import { ProductDeleteComponent } from './components/product/product-delete/product-delete.component';
 import { ReactiveFormsModule } from '@angular/forms';
 import { MatSliderModule } from '@angular/material/slider';
+import { ConfirmationDialogComponent } from './components/confirmation-dialog/confirmation-dialog.component';
+import {MatDialogModule} from '@angular/material/dialog';
 
 registerLocaleData(localePt) 
 
@@ -46,7 +48,8 @@ registerLocaleData(localePt)
     ProductCreateComponent,
     ProductReadComponent,
     ProductUpdateComponent,
-    ProductDeleteComponent
+    ProductDeleteComponent,
+    ConfirmationDialogComponent
     
   
   ],
@@ -67,7 +70,8 @@ registerLocaleData(localePt)
     MatTableModule,
     MatIconModule,
     ReactiveFormsModule,
-    MatSliderModule
+    MatSliderModule,
+    MatDialogModule
     
     
   ],
