@@ -1,31 +1,6 @@
-.mat-update {
-  height         : 70vh;
-  display        : flex;
-  flex-direction : column;
-  justify-content: center;
-  align-items    : center;
-}
-
-mat-card {
-  width: 30rem;
-}
-
-form {
-  display       : flex;
-  flex-direction: column;
-}
-
 button {
-  width : 10%;
-  margin: 10px 5px;
-  width : 80%;
-
-}
-
-.button-container {
-  display        : flex;
-  justify-content: center;
-  padding        : 10px;
+  margin: 5px;
+  width: 10rem;
 }
 
 .update {
@@ -38,6 +13,3 @@ button {
   color           : #fff;
 }
 
-.full-width {
-  width: 100%;
-}

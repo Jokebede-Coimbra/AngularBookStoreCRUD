@@ -4,5 +4,6 @@ export interface Product {
     author: string
     rating: number
     price: number
-    file_name: string
+    fileName: string
+    filebase64: string
 }

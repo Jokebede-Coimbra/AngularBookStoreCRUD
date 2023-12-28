@@ -33,7 +33,6 @@ import { ProductDeleteComponent } from './components/product/product-delete/prod
 import { ReactiveFormsModule } from '@angular/forms';
 import { MatSliderModule } from '@angular/material/slider';
 
-
 registerLocaleData(localePt) 
 
 @NgModule({
@@ -69,6 +68,7 @@ registerLocaleData(localePt)
     MatIconModule,
     ReactiveFormsModule,
     MatSliderModule
+    
     
   ],
   providers: [{

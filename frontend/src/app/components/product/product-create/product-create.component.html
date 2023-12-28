@@ -1,65 +1,84 @@
-<div class="mat-create">
-  <mat-card class="center-card">
-    <mat-card-title>Novo Produto</mat-card-title>
-    <form class="form-container">
-      <mat-form-field class="full-width">
-        <input
-          matInput
-          placeholder="Nome"
-          [(ngModel)]="product.name"
-          name="name"
-          required
-        />
-      </mat-form-field>
-      <mat-form-field class="full-width">
-        <input
-          matInput
-          placeholder="Autor"
-          [(ngModel)]="product.author"
-          name="author"
-          required
-        />
-      </mat-form-field>
-      <mat-form-field class="full-width">
-        <input
-          matInput
-          placeholder="Avaliação"
-          [(ngModel)]="product.rating"
-          name="rating"
-          required
-        />
-      </mat-form-field>
-      <mat-form-field class="full-width">
-        <input
-          matInput
-          placeholder="Preço (R$)"
-          [(ngModel)]="product.price"
-          name="price"
-          required
-        />
-      </mat-form-field>
+<div class="container mt-5">
+  <div class="row justify-content-center">
+    <div class="col-md-6">
+      <form
+        class="form-container"
+        [formGroup]="product"
+        (ngSubmit)="createProduct()"
+      >
+        <div class="mb-3">
+          <label for="name" class="form-label">Nome:</label>
+          <input
+            type="text"
+            class="form-control"
+            id="name"
+            formControlName="name"
+            required
+          />
+        </div>
 
-      <div class="file">
-        <input
-          type="file"
-          name="file_name"
-          (change)="getFile($event)"
-        />
-      </div>
+        <div class="mb-3">
+          <label for="author" class="form-label">Author:</label>
+          <input
+            type="text"
+            class="form-control"
+            id="author"
+            formControlName="author"
+            required
+          />
+        </div>
 
-      <div class="button-container">
-        <button
-          class="salvar"
-          mat-raised-button
-          (click)="createProduct()"
-          color="primary"
-        >
-          Salvar
-        </button>
-        <button class="cancelar" mat-raised-button (click)="cancel()">
-          Cancelar
-        </button>
-      </div>
-    </form>
-  </mat-card>
+        <div class="mb-3">
+          <label for="rating" class="form-label">Rating:</label>
+          <input
+            type="number"
+            class="form-control"
+            id="rating"
+            formControlName="rating"
+            required
+          />
+        </div>
+
+        <div class="mb-3">
+          <label for="price" class="form-label">Price:</label>
+          <input
+            type="number"
+            class="form-control"
+            id="price"
+            formControlName="price"
+            required
+          />
+        </div>
+
+        <div class="mb-3">
+          <label for="fileName" class="form-label">Arquivo:</label>
+          <input
+            type="file"
+            class="form-control"
+            id="fileName"
+            formControlName="fileName"
+            (change)="getFile($event)"
+            required
+          />
+        </div>
+
+        <div class="text-center mt-4">
+          <button
+            type="button"
+            class="btn btn-primary salvar"
+            (click)="createProduct()"
+          >
+            Salvar
+          </button>
+          <button
+            type="button"
+            class="btn btn-secondary cancelar"
+            (click)="cancel()"
+          >
+            Cancelar
+          </button>
+        </div>
+      </form>
+    </div>
+  </div>
 </div>

@@ -1,31 +1,7 @@
-.mat-delete {
-    height         : 70vh;
-    display        : flex;
-    flex-direction : column;
-    justify-content: center;
-    align-items    : center;
-}
-
-mat-card {
-    width: 30rem;
-}
-
-form {
-    display       : flex;
-    flex-direction: column;
-}
-
 button {
-    width : 10%;
-    margin: 10px 5px;
-    width : 80%;
+    margin: 5px;
+    width : 10rem;
 
-}
-
-.button-container {
-    display        : flex;
-    justify-content: center;
-    padding        : 10px;
 }
 
 .delete {

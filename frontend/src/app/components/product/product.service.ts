@@ -1,50 +1,46 @@
-import { HttpClient } from '@angular/common/http';
-import { Injectable } from '@angular/core';
-import { MatSnackBar } from '@angular/material/snack-bar';
-import { Product } from './product.model';
-import { Observable } from 'rxjs';
+import { HttpClient } from "@angular/common/http";
+import { Injectable } from "@angular/core";
+import { MatSnackBar } from "@angular/material/snack-bar";
+import { Product } from "./model/product.model";
+import { Observable } from "rxjs";
 
 @Injectable({
-  providedIn: 'root'
+  providedIn: "root",
 })
-
 export class ProductService {
+  //baseApi = "https://ueef70w2n5.execute-api.sa-east-1.amazonaws.com/dev/";
+  baseApi = 'http://localhost:3600/products';
 
-  baseApi2 = 'http://localhost:3600/products'
-  baseApi = 'http://18.231.125.57/products'
-  
-
-  constructor(private snackBar: MatSnackBar, private http: HttpClient) { }
+  constructor(private snackBar: MatSnackBar, private http: HttpClient) {}
 
   showMessage(msg: string) {
-    this.snackBar.open(msg, 'X', {
+    this.snackBar.open(msg, "X", {
       duration: 3000,
       horizontalPosition: "right",
-      verticalPosition: "top"
-    })
-  }  
+      verticalPosition: "top",
+    });
+  }
 
   create(product: Product): Observable<Product> {
-    return this.http.post<Product>(this.baseApi2, product)
+    return this.http.post<Product>(this.baseApi, product);
   }
 
   read(): Observable<Product[]> {
-    return this.http.get<Product[]>(this.baseApi2)
+    return this.http.get<Product[]>(this.baseApi);
   }
 
   readById(id: string): Observable<Product> {
-    const api = `${this.baseApi2}/${id}`
+    const api = `${this.baseApi}/${id}`;
     return this.http.get<Product>(api);
   }
 
-  update(product:Product): Observable<Product> {
-    const api = `${this.baseApi2}/${product.id}`
+  update(product: Product): Observable<Product> {
+    const api = `${this.baseApi}`;
     return this.http.put<Product>(api, product);
   }
 
   delete(id: string): Observable<Product> {
-    const api = `${this.baseApi2}/${id}`
+    const api = `${this.baseApi}/${id}`;
     return this.http.delete<Product>(api);
-
   }
 }

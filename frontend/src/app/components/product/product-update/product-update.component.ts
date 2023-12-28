@@ -1,7 +1,8 @@
 import { Component, OnInit } from "@angular/core";
 import { ActivatedRoute, Router } from "@angular/router";
 import { ProductService } from "../product.service";
-import { Product } from "../product.model";
+import { Product } from "../model/product.model";
+import { FormGroup, Validators, FormBuilder } from "@angular/forms";
 
 @Component({
   selector: "app-product-update",
@@ -10,12 +11,23 @@ import { Product } from "../product.model";
 })
 export class ProductUpdateComponent implements OnInit {
   
-  product: Product = null as any
+  product: Product | any;
+
+  productForm: FormGroup = this.formBuilder.group({
+    id: [""],
+    name: ["",  Validators.required],
+    author: ["", Validators.required],
+    rating: [, Validators.required],
+    price: [, Validators.required],
+    fileName: ["", Validators.required],
+    filebase64: [""],
+  });
   
   constructor(
     private productService: ProductService,
     private router: Router,
-    private route: ActivatedRoute
+    private route: ActivatedRoute,
+    private formBuilder: FormBuilder
   ) {}
 
   ngOnInit(): void {

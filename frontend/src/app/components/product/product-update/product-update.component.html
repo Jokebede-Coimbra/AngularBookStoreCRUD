@@ -1,56 +1,83 @@
-<div class="mat-update">
-  <mat-card>
-    <mat-card-title>Atualizar Produto</mat-card-title>
-    <form>
-      <mat-form-field>
-        <input
-          matInput
-          placeholder="Name"
-          [(ngModel)]="product.name"
-          name="name"
-        />
-      </mat-form-field>
-      <mat-form-field>
-        <input
-          matInput
-          placeholder="Author"
-          [(ngModel)]="product.author"
-          name="author"
-        />
-      </mat-form-field>
-      <mat-form-field>
-        <input
-          matInput
-          placeholder="Rating"
-          [(ngModel)]="product.rating"
-          name="rating"
-        />
-      </mat-form-field>
-      <mat-form-field>
-        <input
-          matInput
-          placeholder="Price"
-          [(ngModel)]="product.price"
-          name="price"
-        />
-      </mat-form-field>
-      <mat-form-field>
-        <input
-          matInput
-          placeholder="FileName"
-          [(ngModel)]="product.file_name"
-          name="file_name"
-        />
-      </mat-form-field>
-    </form>
-    <div class="button-container">
-      <button mat-raised-button class="update" (click)="updateProduct()">
-        Atualizar
-      </button>
+<div class="container mt-5">
+  <div class="row justify-content-center">
+    <div class="col-md-6">
+      <form
+        class="form-container"
+        [formGroup]="productForm"
+        (ngSubmit)="updateProduct()"
+      >
+        <div class="mb-3">
+          <label for="name" class="form-label">Nome:</label>
+          <input
+            type="text"
+            class="form-control"
+            id="name"
+            formControlName="name"
+            required
+          />
+        </div>
 
-      <button mat-raised-button class="cancel" (click)="cancel()">
-        Cancelar
-      </button>
+        <div class="mb-3">
+          <label for="author" class="form-label">Author:</label>
+          <input
+            type="text"
+            class="form-control"
+            id="author"
+            formControlName="author"
+            required
+          />
+        </div>
+
+        <div class="mb-3">
+          <label for="rating" class="form-label">Rating:</label>
+          <input
+            type="number"
+            class="form-control"
+            id="rating"
+            formControlName="rating"
+            required
+          />
+        </div>
+
+        <div class="mb-3">
+          <label for="price" class="form-label">Price:</label>
+          <input
+            type="number"
+            class="form-control"
+            id="price"
+            formControlName="price"
+            required
+          />
+        </div>
+
+        <div class="mb-3">
+          <label for="fileName" class="form-label">Arquivo:</label>
+          <input
+            type="file"
+            class="form-control"
+            id="fileName"
+            formControlName="fileName"
+            required
+          />
+        </div>
+
+        <div class="text-center mt-4">
+          <button
+            type="button"
+            class="btn btn-primary update"
+            (click)="updateProduct()"
+          >
+            Atualizar
+          </button>
+          <button
+            type="button"
+            class="btn btn-secondary cancel"
+            (click)="cancel()"
+          >
+            Cancelar
+          </button>
+        </div>
+      </form>
     </div>
-  </mat-card>
+  </div>
 </div>
