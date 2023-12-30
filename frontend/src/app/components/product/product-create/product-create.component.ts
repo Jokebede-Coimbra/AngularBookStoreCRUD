@@ -1,10 +1,9 @@
 import { Product } from "../model/product.model";
 import { Component, OnInit } from "@angular/core";
-import { ProductService } from "../product.service";
+import { ProductService } from "../services/product.service";
 import { Router } from "@angular/router";
-import { formatDate } from "@angular/common";
-import { Observable, switchMap } from "rxjs";
 import { FormBuilder, Validators } from "@angular/forms";
+import { ImageConversionService } from "../services/image.conversion.service";
 
 @Component({
   selector: "app-product-create",
@@ -16,6 +15,7 @@ export class ProductCreateComponent implements OnInit {
 
   constructor(
     private productService: ProductService,
+    private imageConversionService: ImageConversionService,
     private router: Router,
     private formBuilder: FormBuilder
   ) {}
@@ -39,28 +39,11 @@ export class ProductCreateComponent implements OnInit {
     });
   }
 
-  convertImageToBase64(file: File): Observable<string> {
-    return new Observable<string>((observer) => {
-      const reader = new FileReader();
-
-      reader.onloadend = () => {
-        observer.next(reader.result as string);
-        observer.complete();
-      };
-
-      reader.onerror = (error) => {
-        observer.error(error);
-      };
-
-      reader.readAsDataURL(file);
-    });
-  }
-
   getFile(event: any): void {
     console.log("Evento: ", event);
     const selectedFile = event.target.files[0];
 
-    this.convertImageToBase64(selectedFile).subscribe(
+    this.imageConversionService.convertImageToBase64(selectedFile).subscribe(
       (base64String) => {
         console.log("Teste2", base64String);
         this.product.get("filebase64")?.setValue(base64String);

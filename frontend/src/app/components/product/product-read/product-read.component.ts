@@ -1,6 +1,6 @@
 import { Component, OnInit } from "@angular/core";
 import { Product } from "../model/product.model";
-import { ProductService } from "../product.service";
+import { ProductService } from "../services/product.service";
 import { ChangeDetectorRef } from "@angular/core";
 import { ConfirmationDialogComponent } from "../../confirmation-dialog/confirmation-dialog.component";
 import { MatDialog } from "@angular/material/dialog";
@@ -31,7 +31,7 @@ export class ProductReadComponent implements OnInit {
   constructor(
     private productService: ProductService,
     private cdr: ChangeDetectorRef,  
-    public dialog: MatDialog
+    public dialog: MatDialog,
   ) {}
 
   ngOnInit(): void {
@@ -61,4 +61,5 @@ export class ProductReadComponent implements OnInit {
       this.cdr.detectChanges();
     });
   }
+
 }

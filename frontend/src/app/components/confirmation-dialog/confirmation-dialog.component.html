@@ -2,10 +2,10 @@
   <p>{{ data }}</p>
 </div>
 <div mat-dialog-actions align="center">
-  <button mat-raised-button (click)="onConfirm(true)" color="primary">
+  <button mat-raised-button (click)="onConfirm(true)" color="warn">
     Sim
   </button>
-  <button mat-raised-button (click)="onConfirm(false)" color="warn">
+  <button mat-raised-button (click)="onConfirm(false)" class="cancel">
     Não
 </button>
 </div>
