@@ -30,8 +30,8 @@ export class ProductReadComponent implements OnInit {
 
   constructor(
     private productService: ProductService,
-    private cdr: ChangeDetectorRef,  
-    public dialog: MatDialog,
+    private cdr: ChangeDetectorRef,
+    public dialog: MatDialog
   ) {}
 
   ngOnInit(): void {
@@ -61,5 +61,4 @@ export class ProductReadComponent implements OnInit {
       this.cdr.detectChanges();
     });
   }
-
 }
