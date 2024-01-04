@@ -3,7 +3,6 @@ import { ActivatedRoute, Router } from "@angular/router";
 import { ProductService } from "../services/product.service";
 import { Product } from "../model/product.model";
 import { FormGroup, Validators, FormBuilder } from "@angular/forms";
-import { ImageConversionService } from "../services/image.conversion.service";
 
 @Component({
   selector: "app-product-update",
@@ -12,8 +11,9 @@ import { ImageConversionService } from "../services/image.conversion.service";
 })
 export class ProductUpdateComponent implements OnInit {
   product: Product | any;
+  isAddMode = false;
 
-  productForm: FormGroup = this.formBuilder.group({
+  form: FormGroup = this.formBuilder.group({
     id: [""],
     name: ["", Validators.required],
     author: ["", Validators.required],
@@ -25,7 +25,6 @@ export class ProductUpdateComponent implements OnInit {
 
   constructor(
     private productService: ProductService,
-    private imageConversionService: ImageConversionService,
     private router: Router,
     private route: ActivatedRoute,
     private formBuilder: FormBuilder
@@ -36,39 +35,23 @@ export class ProductUpdateComponent implements OnInit {
 
     this.productService.readById(id).subscribe((product) => {
       this.product = product;
-      this.productForm.patchValue({
+      this.form.patchValue({
         id: product.id,
         name: product.name,
         author: product.author,
         rating: product.rating,
         price: product.price,
         fileName: product.fileName,
-        filebase64: product.filebase64
+        filebase64: product.filebase64,
       });
     });
   }
 
   updateProduct(): void {
-    this.productService.update(this.product).subscribe(() => {
+    this.productService.update(this.form.value).subscribe(() => {
       this.productService.showMessage("Produto atualizado com sucesso!");
       this.router.navigate(["/products"]);
     });
-  }
-
-  getFile(event: any): void {
-    console.log("Evento: ", event);
-    const selectedFile = event.target.files[0];
-
-    this.imageConversionService.convertImageToBase64(selectedFile).subscribe(
-      (base64String) => {
-        console.log("Teste2", base64String);
-        this.productForm.get("filebase64")?.setValue(base64String);
-        console.log("Teste4", base64String);
-      },
-      (error) => {
-        console.error("Erro ao converter imagem para base64:", error);
-      }
-    );
   }
 
   cancel(): void {

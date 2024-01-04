@@ -33,6 +33,7 @@ import { ReactiveFormsModule } from '@angular/forms';
 import { MatSliderModule } from '@angular/material/slider';
 import { ConfirmationDialogComponent } from './components/confirmation-dialog/confirmation-dialog.component';
 import {MatDialogModule} from '@angular/material/dialog';
+import { FormComponent } from './shared/form/form.component';
 
 registerLocaleData(localePt) 
 
@@ -47,7 +48,8 @@ registerLocaleData(localePt)
     ProductCreateComponent,
     ProductReadComponent,
     ProductUpdateComponent,
-    ConfirmationDialogComponent
+    ConfirmationDialogComponent,
+    FormComponent
     
   
   ],

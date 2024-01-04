@@ -2,7 +2,7 @@ import { Product } from "../model/product.model";
 import { Component, OnInit } from "@angular/core";
 import { ProductService } from "../services/product.service";
 import { Router } from "@angular/router";
-import { FormBuilder, Validators } from "@angular/forms";
+import { FormBuilder, FormGroup, Validators } from "@angular/forms";
 import { ImageConversionService } from "../services/image.conversion.service";
 
 @Component({
@@ -11,17 +11,18 @@ import { ImageConversionService } from "../services/image.conversion.service";
   styleUrls: ["./product-create.component.scss"],
 })
 export class ProductCreateComponent implements OnInit {
-  product: Product | any;
-
+  // product: Product | any;
+  form!: FormGroup;
+  isAddMode = true;
+  
   constructor(
     private productService: ProductService,
-    private imageConversionService: ImageConversionService,
     private router: Router,
     private formBuilder: FormBuilder
   ) {}
 
   ngOnInit(): void {
-    this.product = this.formBuilder.group({
+    this.form = this.formBuilder.group({
       id: [""],
       name: ["", Validators.required],
       author: ["", Validators.required],
@@ -32,27 +33,13 @@ export class ProductCreateComponent implements OnInit {
     });
   }
 
-  createProduct(): void {
-    this.productService.create(this.product.value).subscribe(() => {
-      this.productService.showMessage("Produto criado com sucesso!");
-      this.router.navigate(["/products"]);
+  onSubmit(): void {
+    console.log("Formulário antes do envio:", this.form.value);
+
+    this.productService.create(this.form.value).subscribe(() => {
+      this.productService.showMessage('Produto criado com sucesso!');
+      this.router.navigate(['/products']);
     });
-  }
-
-  getFile(event: any): void {
-    console.log("Evento: ", event);
-    const selectedFile = event.target.files[0];
-
-    this.imageConversionService.convertImageToBase64(selectedFile).subscribe(
-      (base64String) => {
-        console.log("Teste2", base64String);
-        this.product.get("filebase64")?.setValue(base64String);
-        console.log("Teste4", base64String);
-      },
-      (error) => {
-        console.error("Erro ao converter imagem para base64:", error);
-      }
-    );
   }
 
   cancel(): void {

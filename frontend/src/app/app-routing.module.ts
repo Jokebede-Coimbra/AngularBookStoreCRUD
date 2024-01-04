@@ -14,7 +14,8 @@ const routes: Routes = [
   },
   { path: "products", component: ProductCrudComponent },
   { path: "products/create", component: ProductCreateComponent },
-  { path: "products/update/:id", component: ProductUpdateComponent }
+  { path: "products/update/:id", component: ProductUpdateComponent },
+  { path: '', redirectTo: '/product-create', pathMatch: 'full'}
 
 ];
 
