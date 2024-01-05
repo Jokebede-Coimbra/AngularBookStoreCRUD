@@ -8,8 +8,8 @@ import { Observable } from "rxjs";
   providedIn: "root",
 })
 export class ProductService {
-  //baseApi = "https://ueef70w2n5.execute-api.sa-east-1.amazonaws.com/dev/";
-  baseApi = "http://localhost:3600/products";
+  baseApi = "https://ueef70w2n5.execute-api.sa-east-1.amazonaws.com/dev/";
+  // baseApi = "http://localhost:3600/products";
 
   constructor(private snackBar: MatSnackBar, private http: HttpClient) {}
 

@@ -1,13 +1,21 @@
-.home .title { 
-    font-size: 3rem;
+.home .title {
+    font-size  : 3rem;
     font-weight: 300;
     line-height: 1.2;
 }
 
-.home .subtitle { 
+.home .subtitle {
     font-size: 1.1rem;
 }
 
 .img-fluid {
     width: 20rem;
+}
+
+
+.carousel-item p {
+    max-width : 500px;
+    text-align: justify;
+    font-size : 18px;
+    font-family: 'Dosis', sans-serif;
 }

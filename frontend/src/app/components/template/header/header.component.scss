@@ -22,7 +22,7 @@
 }
 
 .header .logo {
-    max-height: 4.6rem;
+    max-height: 5.5rem;
 }
 
 .header .spacer  {
@@ -30,3 +30,9 @@
         
 }
 
+/* SeuComponente.component.css */
+
+.mat-toolbar {
+    height: 90px; /* ou o tamanho desejado em pixels */
+  }
+  
