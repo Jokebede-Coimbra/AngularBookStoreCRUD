@@ -3,7 +3,7 @@
 > Status: ✔️
 
 ### Sobre
-Projeto consiste em um exemplo de sistema de livraria 
+Projeto consiste em um exemplo de aplicativo web para gerenciar uma biblioteca de livros 
 
 ### Tecnologias Utilizadas
 
