@@ -14,7 +14,7 @@ export class ProductUpdateComponent implements OnInit {
   isAddMode = false;
 
   form: FormGroup = this.formBuilder.group({
-    id: [""],
+    Id: [""],
     name: ["", Validators.required],
     author: ["", Validators.required],
     rating: [, Validators.required],
@@ -36,7 +36,7 @@ export class ProductUpdateComponent implements OnInit {
     this.productService.readById(id).subscribe((product) => {
       this.product = product;
       this.form.patchValue({
-        id: product.id,
+        Id: product.Id,
         name: product.name,
         author: product.author,
         rating: product.rating,

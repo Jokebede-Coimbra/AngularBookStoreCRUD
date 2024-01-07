@@ -30,22 +30,22 @@ export class ProductService {
   }
 
   readById(id: string): Observable<Product> {
-    //const api = `${this.baseApi}products/${id}`;
-    const api = `${this.baseApi}/${id}`;
+    const api = `${this.baseApi}products/${id}`;
+    //const api = `${this.baseApi}/${id}`;
     return this.http.get<Product>(api);
   }
 
-   //local
-  update(product: Product): Observable<Product> {
-     const api = `${this.baseApi}/${product.id}`;
-      return this.http.put<Product>(api, product);
-    }
+  //local
+  // update(product: Product): Observable<Product> {
+  //    const api = `${this.baseApi}/${product.id}`;
+  //     return this.http.put<Product>(api, product);
+  //   }
 
   // API
-  // update(product: Product): Observable<Product> {
-  //   const api = `${this.baseApi}`;
-  //   return this.http.put<Product>(api, product);
-  // }
+  update(product: Product): Observable<Product> {
+    const api = `${this.baseApi}`;
+    return this.http.put<Product>(api, product);
+  }
 
   delete(id: string): Observable<Product> {
     const api = `${this.baseApi}/${id}`;

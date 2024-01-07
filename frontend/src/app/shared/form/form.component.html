@@ -1,92 +1,106 @@
-<div class="container mt-5">
-  <div class="row justify-content-center">
-    <div class="col-md-6">
-      <form [formGroup]="form" (ngSubmit)="onSubmit()">
-        <div class="mb-3">
-          <label for="name" class="form-label">Nome:</label>
-          <input
-            type="text"
-            class="form-control"
-            id="name"
-            formControlName="name"
-            required
-          />
-        </div>
+<section class="vh-90">
+  <div class="container py-5">
+    <div class="row justify-content-center align-items-center h-100">
+      <div class="col col-xl-10">
+        <div class="card" style="border-radius: 1rem;">
+          <div class="row g-0">
+            <div class="col-md-6 col-lg-5 d-none d-md-block">
+              <img src="assets/image/pexels-photo-3747472.jpeg"
+                alt="login form" class="img-fluid" style="border-radius: 1rem 0 0 1rem;" />
+            </div>
+            <div class="col-md-6 col-lg-7 d-flex align-items-center">
+              <div class="card-body p-4 p-lg-5 text-black">
+                <form [formGroup]="form" (ngSubmit)="onSubmit()">
+                  <div class="mb-3">
+                    <label for="name" class="form-label">Nome:</label>
+                    <input
+                      type="text"
+                      class="form-control"
+                      id="name"
+                      formControlName="name"
+                      required
+                    />
+                  </div>
 
-        <div class="mb-3">
-          <label for="author" class="form-label">Author:</label>
-          <input
-            type="text"
-            class="form-control"
-            id="author"
-            formControlName="author"
-            required
-          />
-        </div>
+                  <div class="mb-3">
+                    <label for="author" class="form-label">Author:</label>
+                    <input
+                      type="text"
+                      class="form-control"
+                      id="author"
+                      formControlName="author"
+                      required
+                    />
+                  </div>
 
-        <div class="mb-3">
-          <label for="rating" class="form-label">Rating:</label>
-          <input
-            type="number"
-            class="form-control"
-            id="rating"
-            formControlName="rating"
-            required
-          />
-        </div>
+                  <div class="mb-3">
+                    <label for="rating" class="form-label">Rating:</label>
+                    <input
+                      type="number"
+                      class="form-control"
+                      id="rating"
+                      formControlName="rating"
+                      required
+                    />
+                  </div>
 
-        <div class="mb-3">
-          <label for="price" class="form-label">Price:</label>
-          <input
-            type="number"
-            class="form-control"
-            id="price"
-            formControlName="price"
-            required
-          />
-        </div>
+                  <div class="mb-3">
+                    <label for="price" class="form-label">Price:</label>
+                    <input
+                      type="number"
+                      class="form-control"
+                      id="price"
+                      formControlName="price"
+                      required
+                    />
+                  </div>
 
-        <div class="mb-3">
-          <label for="fileName" class="form-label">Arquivo:</label>
-          <input
-            type="file"
-            class="form-control"
-            id="fileName"
-            formControlName="fileName"
-            (change)="getFile($event)"
-            required
-          />
+                  <div class="mb-3">
+                    <label for="fileName" class="form-label">Arquivo:</label>
+                    <input
+                      type="file"
+                      class="form-control"
+                      id="fileName"
+                      formControlName="fileName"
+                      (change)="getFile($event)"
+                      required
+                    />
+                  </div>
+
+                  <div class="text-center mt-4">
+                    <button
+                      *ngIf="isAddMode; else updateButton"
+                      type="button"
+                      class="btn btn-primary salvar"
+                      [disabled]="form.invalid"
+                      (click)="onSubmit()"
+                    >
+                      Salvar
+                    </button>
+                    <ng-template #updateButton>
+                      <button
+                        type="button"
+                        class="btn btn-primary update"
+                        [disabled]="form.invalid"
+                        (click)="onSubmit()"
+                      >
+                        Atualizar
+                      </button>
+                    </ng-template>
+                    <button
+                      type="button"
+                      class="btn btn-secondary cancel"
+                      (click)="onCancel()"
+                    >
+                      Cancelar
+                    </button>
+                  </div>
+                </form>
+              </div>
+            </div>
+          </div>
         </div>
-      
-        <div class="text-center mt-4">
-          <button
-            *ngIf="isAddMode; else updateButton"
-            type="button"
-            class="btn btn-primary salvar"
-            [disabled]="form.invalid"
-            (click)="onSubmit()"
-          >
-            Salvar
-          </button>
-          <ng-template #updateButton>
-            <button
-              type="button"
-              class="btn btn-primary update"
-              [disabled]="form.invalid"
-              (click)="onSubmit()"
-            >
-              Atualizar
-            </button>
-          </ng-template>
-          <button
-            type="button"
-            class="btn btn-secondary cancel"
-            (click)="onCancel()"
-          >
-            Cancelar
-          </button>
-        </div>
-      </form>
+      </div>
     </div>
   </div>
-</div>
+</section>
