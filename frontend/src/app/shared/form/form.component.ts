@@ -26,15 +26,10 @@ export class FormComponent {
   getFile(event: any): void {
     const selectedFile = event.target.files[0];
 
-    this.imageConversionService.convertImageToBase64(selectedFile).subscribe(
-      (base64String) => {
-        // this.product.filebase64 = base64String;
-        this.form.get("filebase64")?.setValue(base64String);
-      },
-      (error) => {
-        console.error("Erro ao converter imagem para base64:", error);
-      }
-    );
+    this.imageConversionService.readFile(selectedFile).then(base64String => {
+      this.form.get("filebase64")?.setValue(base64String);
+      console.log('Base64 Encoded:', base64String);
+    });
   }
 
   onCancel(): void {

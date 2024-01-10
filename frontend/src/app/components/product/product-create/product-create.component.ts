@@ -23,7 +23,7 @@ export class ProductCreateComponent implements OnInit {
 
   ngOnInit(): void {
     this.form = this.formBuilder.group({
-      id: [""],
+      Id: [""],
       name: ["", Validators.required],
       author: ["", Validators.required],
       rating: [, Validators.required],
